@@ -1,40 +1,136 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mon Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Bonjour, je suis <span>TINA</span></h1>
-    <p>Développeur Web | Passionné de technologie</p>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="logo">Mon Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#education">Formation</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section id="about">
-    <h2>À propos de moi</h2>
-    <p>Je suis un développeur passionné par le web, la création de sites modernes, et l'amélioration de l'expérience utilisateur.</p>
-  </section>
+    <!-- Section principale -->
+    <section id="home" class="hero">
+        <h1>Bienvenue sur mon Portfolio</h1>
+        <p>Découvrez mes compétences, formations et projets professionnels.</p>
+        <a href="#about" class="cta-button">En savoir plus</a>
+    </section>
 
-  <section id="projects">
-    <h2>Mes projets</h2>
-    <ul>
-      <li>🔧 Site éducatif pour enfants</li>
-      <li>📷 Application galerie photo</li>
-      <li>🌍 Carte interactive des pays</li>
-    </ul>
-  </section>
+    <!-- Section À propos -->
+    <section id="about" class="section">
+        <h2>À propos de moi</h2>
+        <div class="about-content">
+            <img src="https://via.placeholder.com/150" alt="Photo de profil" class="profile-img">
+            <div class="about-text">
+                <p>Nom : AROTINA MIORA </p>
+                <p>Email : dvlpr4392@gmail.com </p>
+                <p>Téléphone : +261343842051</p>
+                <p>Adresse :  Antananarivo Madagascar </p>
+                <p>Je suis un professionnel passionné avec une expertise dans le développement web. Mon objectif est de mettre toutes mes compétences dans le domaine que je suis.</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email : dvlpr4392@gmail.com</p>
-    <p>GitHub : <a href="https://github.com/DVTINA" target="_blank">DVINA</a></p>
-  </section>
+    <!-- Section Formation et Études -->
+    <section id="education" class="section">
+        <h2>Formation et Études</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>MAÎTRISE</h3>
+                <p>UNIVERSITÉ DE MADAGASCAR, 2015-2016</p>
+                <p>Spécialisation en développement web et intelligence artificielle.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Licence</h3>
+                <p>UNIVERSITÉ DE MADAGASCAR, 2014-2015</p>
+                <p>Projets axés sur le développement d'applications web.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Baccalauréat</h3>
+                <p>Lycée d'enseignement général de Madagascar, 2012</p>
+                <p>Mention Très Bien.</p>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 TINA. Tous droits réservés.</p>
-  </footer>
+    <!-- Section Compétences -->
+    <section id="skills" class="section">
+        <h2>Compétences Professionnelles</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Développement Web</h3>
+                <p>HTML, CSS, JavaScript, React, PHP, Python...</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Conception UI/UX</h3>
+                <p>Figma, Adobe XD</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Gestion de Projet</h3>
+                <p>Agile, Scrum, Trello</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Analyse de Données</h3>
+                <p>Python, SQL, Power BI</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="section">
+        <h2>Contactez-moi</h2>
+        <form id="contactForm">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" required>
+            
+            <label for="message">Message :</label>
+            <textarea id="message" required></textarea>
+            
+            <button type="submit">Envoyer</button>
+        </form>
+        <p id="formMessage"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Suivez-moi sur les réseaux sociaux :</p>
+        <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2025 Miora. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
