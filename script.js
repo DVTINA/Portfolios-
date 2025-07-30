@@ -1,21 +1,3 @@
-// Gestion du formulaire de contact
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    if (name && email && message) {
-        document.getElementById('formMessage').textContent = `Merci ${name} ! Votre message a été envoyé.`;
-        document.getElementById('formMessage').style.color = 'green';
-        this.reset();
-    } else {
-        document.getElementById('formMessage').textContent = 'Veuillez remplir tous les champs.';
-        document.getElementById('formMessage').style.color = 'red';
-    }
-});
-
 // Animation des barres de progression lors du défilement
 const progressBars = document.querySelectorAll('.progress');
 const skillsSection = document.getElementById('skills');
@@ -33,3 +15,27 @@ function animateProgressBars() {
 }
 
 window.addEventListener('scroll', animateProgressBars);
+
+// Gestion du formulaire (confirmation locale avant envoi à Web3Forms)
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const gender = document.getElementById('gender').value;
+    
+    if (name && phone && gender) {
+        document.getElementById('formMessage').textContent = `Merci ${name} ! Votre message est en cours d'envoi...`;
+        document.getElementById('formMessage').style.color = 'green';
+    } else {
+        e.preventDefault();
+        document.getElementById('formMessage').textContent = 'Veuillez remplir tous les champs.';
+        document.getElementById('formMessage').style.color = 'red';
+    }
+});
+
+// Afficher le message de confirmation après redirection
+const urlParams = new URLSearchParams(window.location.search);
+const message = urlParams.get('message');
+if (message) {
+    document.getElementById('formMessage').textContent = message;
+    document.getElementById('formMessage').style.color = 'green';
+}
