@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
+    <title>Mon Portfolio Moderne</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- En-tête -->
     <header>
         <div class="logo">Mon Portfolio</div>
         <nav>
             <ul>
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#about">À propos</a></li>
-                <li><a href="#education">Formation</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -25,8 +24,8 @@
     <!-- Section principale -->
     <section id="home" class="hero">
         <h1>Bienvenue sur mon Portfolio</h1>
-        <p>Découvrez mes compétences, formations et projets professionnels.</p>
-        <a href="#about" class="cta-button">En savoir plus</a>
+        <p>Découvrez mes compétences et projets. Contactez-moi pour collaborer !</p>
+        <a href="#contact" class="cta-button">Me contacter</a>
     </section>
 
     <!-- Section À propos -->
@@ -35,50 +34,26 @@
         <div class="about-content">
             <img src="https://via.placeholder.com/150" alt="Photo de profil" class="profile-img">
             <div class="about-text">
-                <p>Nom : AROTINA MIORA </p>
-                <p>Email : dvlpr4392@gmail.com </p>
-                <p>Téléphone : +261343842051</p>
-                <p>Adresse :  Antananarivo Madagascar </p>
-                <p>Je suis un professionnel passionné avec une expertise dans le développement web. Mon objectif est de mettre toutes mes compétences dans le domaine que je suis.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Formation et Études -->
-    <section id="education" class="section">
-        <h2>Formation et Études</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>MAÎTRISE</h3>
-                <p>UNIVERSITÉ DE MADAGASCAR, 2015-2016</p>
-                <p>Spécialisation en développement web et intelligence artificielle.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Licence</h3>
-                <p>UNIVERSITÉ DE MADAGASCAR, 2014-2015</p>
-                <p>Projets axés sur le développement d'applications web.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Baccalauréat</h3>
-                <p>Lycée d'enseignement général de Madagascar, 2012</p>
-                <p>Mention Très Bien.</p>
+                <p>Je suis AROTINA, un professionnel passionné par le developpement web.</p>
+                <p>Avec une expertise en informatique, je crée des solutions innovantes pour le developpeur.</p>
+                <p>Contactez-moi pour discuter de vos projets ou opportunités !</p>
             </div>
         </div>
     </section>
 
     <!-- Section Compétences -->
     <section id="skills" class="section">
-        <h2>Compétences Professionnelles</h2>
+        <h2>Mes Compétences</h2>
         <div class="skills-grid">
             <div class="skill-card">
                 <h3>Développement Web</h3>
-                <p>HTML, CSS, JavaScript, React, PHP, Python...</p>
+                <p>HTML, CSS, JavaScript</p>
                 <div class="progress-bar">
                     <div class="progress" style="width: 90%;"></div>
                 </div>
             </div>
             <div class="skill-card">
-                <h3>Conception UI/UX</h3>
+                <h3>Design UI/UX</h3>
                 <p>Figma, Adobe XD</p>
                 <div class="progress-bar">
                     <div class="progress" style="width: 80%;"></div>
@@ -86,16 +61,9 @@
             </div>
             <div class="skill-card">
                 <h3>Gestion de Projet</h3>
-                <p>Agile, Scrum, Trello</p>
+                <p>Agile, Scrum</p>
                 <div class="progress-bar">
                     <div class="progress" style="width: 85%;"></div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Analyse de Données</h3>
-                <p>Python, SQL, Power BI</p>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%;"></div>
                 </div>
             </div>
         </div>
@@ -104,31 +72,40 @@
     <!-- Section Contact -->
     <section id="contact" class="section">
         <h2>Contactez-moi</h2>
-        <form id="contactForm">
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="9eae8f19-3986-457e-991f-43c241c17b22">
+            <input type="hidden" name="subject" value="Nouvelle soumission de portfolio">
+            <input type="hidden" name="redirect" value="https://dvtina.github.io/portfolios-?message=Message%20envoyé">
+            <input type="hidden" name="from_name" value="Portfolio Contact">
+
             <label for="name">Nom :</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
             
-            <label for="email">Email :</label>
-            <input type="email" id="email" required>
+            <label for="phone">Téléphone :</label>
+            <input type="tel" id="phone" name="phone" required>
             
-            <label for="message">Message :</label>
-            <textarea id="message" required></textarea>
+            <label for="gender">Sexe :</label>
+            <select id="gender" name="gender" required>
+                <option value="">Sélectionnez</option>
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="Autre">Autre</option>
+            </select>
             
             <button type="submit">Envoyer</button>
         </form>
         <p id="formMessage"></p>
     </section>
 
-    <!-- Footer -->
+    <!-- Pied de page -->
     <footer>
         <p>Suivez-moi sur les réseaux sociaux :</p>
         <div class="social-links">
             <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
             <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
-        <p>&copy; 2025 Miora. Tous droits réservés.</p>
+        <p>&copy; 2025 Tina. Tous droits réservés.</p>
     </footer>
 
     <script src="script.js"></script>
