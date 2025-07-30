@@ -16,16 +16,15 @@ function animateProgressBars() {
 
 window.addEventListener('scroll', animateProgressBars);
 
-// Gestion du formulaire (confirmation et réinitialisation)
+// Gestion du formulaire (confirmation locale avant envoi à Web3Forms)
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const gender = document.getElementById('gender').value;
     
     if (name && phone && gender) {
-        document.getElementById('formMessage').textContent = 'Message envoyé !';
+        document.getElementById('formMessage').textContent = `Merci ${name} ! Votre message est en cours d'envoi...`;
         document.getElementById('formMessage').style.color = 'green';
-        this.reset(); // Vider le formulaire après soumission
     } else {
         e.preventDefault();
         document.getElementById('formMessage').textContent = 'Veuillez remplir tous les champs.';
@@ -37,6 +36,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 const urlParams = new URLSearchParams(window.location.search);
 const message = urlParams.get('message');
 if (message) {
-    document.getElementById('formMessage').textContent = decodeURIComponent(message);
+    document.getElementById('formMessage').textContent = message;
     document.getElementById('formMessage').style.color = 'green';
 }
