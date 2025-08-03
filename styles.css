@@ -115,34 +115,40 @@ ul {
 
 ul li {
     margin-bottom: 0.8rem;
-}/* Remplacer la section .contact-links existante */
+}
+
+
+
+/* Remplacer la section .contact-links et .contact-item */
 .contact-links {
-    display: flex;
-    flex-direction: column; /* Disposer verticalement */
-    gap: 1.5rem;
-    width: 100%; /* Plein écran */
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grille responsive */
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
 }
 
 .contact-item {
     color: #00f7ff; /* Aqua */
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.8rem;
     background: #2a2a2a; /* Fond légèrement plus clair */
-    padding: 1rem;
-    width: 100%; /* Prendre toute la largeur */
-    max-width: 600px; /* Limite pour éviter un étirement excessif */
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     animation: float 3s ease-in-out infinite; /* Animation de flottement */
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .contact-item:hover {
     background: #ff69b4; /* Rose au survol */
     color: #ffffff;
+    transform: scale(1.05); /* Légère mise à l'échelle au survol */
 }
 
 /* Animation de flottement */
