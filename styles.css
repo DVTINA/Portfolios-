@@ -329,10 +329,19 @@ form button:hover {
     max-width: 400px;
 }
 
-h2 {
-    color: #00ffff; /* Aqua pour le titre */
-    text-align: center;
+
+.sections {
+    background-color: #000; /* Noir pour le fond */
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
+
+
 
 .form-group {
     margin-bottom: 15px;
