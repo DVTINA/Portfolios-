@@ -75,3 +75,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Afficher les articles au chargement
     displayPosts();
 });
+
+
+
+// JavaScript pour Interactions Basiques (Modifiable)
+// Exemple : Ajout au panier (simulé avec alert), validation formulaire optionnelle
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Boutons "Ajouter au panier"
+    const addButtons = document.querySelectorAll('.product button');
+    addButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('Envoyer ! Merci.');
+            // Vous pouvez ajouter du code pour un vrai panier ici (localStorage par ex.)
+        });
+    });
+
+    // Formulaire : Ajoutez une validation simple si besoin
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+        // Validation optionnelle avant envoi à Web3Forms
+        console.log('Formulaire soumis');
+    });
+});
