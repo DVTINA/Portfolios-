@@ -317,75 +317,127 @@ form button:hover {
     }
 }
 
-
-
-
+/* Form Container */
 .form-container {
-    background-color: #1a1a1a; /* Fond légèrement plus clair pour le formulaire */
-    padding: 20px;
+    background: #1a1a1a;
+    padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Ombre aqua */
-    width: 100%;
-    max-width: 400px;
+    margin-top: 2rem;
+    max-width: 500px; /* Légèrement plus large pour un meilleur confort */
+    margin-left: auto;
+    margin-right: auto; /* Centrer le formulaire */
 }
 
-
-.sections {
-    background-color: #000; /* Noir pour le fond */
-    color: #fff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+.form-container h2 {
+    text-align: center;
 }
-
-
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
 }
 
-label {
-    color: #ff69b4; /* Rose pour les labels */
+.form-group label {
+    color: #ff69b4; /* Rose */
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
-input, textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #00ffff; /* Bordure aqua */
+    padding: 0.8rem;
+    border: 2px solid #00f7ff; /* Aqua */
     border-radius: 5px;
-    background-color: #333;
-    color: #fff;
-    font-size: 16px;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-size: 1rem;
 }
 
-textarea {
-    height: 100px;
+.form-group textarea {
+    height: 120px;
     resize: vertical;
 }
 
-button {
-    background-color: #ff69b4; /* Rose pour le bouton */
-    color: #000;
-    padding: 10px 20px;
+.form-container button {
+    background: #ff69b4; /* Rose */
+    color: #000000;
+    padding: 0.8rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
 }
 
-button:hover {
-    background-color: #00ffff; /* Aqua au survol */
-    color: #000;
+.form-container button:hover {
+    background: #00f7ff; /* Aqua au survol */
+    color: #000000;
 }
 
 #form-message {
-    color: #00ffff; /* Aqua pour les messages */
+    color: #00f7ff; /* Aqua */
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1rem;
+    font-size: 1rem;
 }
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: #1a1a1a;
+    color: #ffffff;
+    margin-top: 2rem;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .portfolio-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+
