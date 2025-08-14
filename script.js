@@ -77,24 +77,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.getElementById('contact-form').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
-// JavaScript pour Interactions Basiques (Modifiable)
-// Exemple : Ajout au panier (simulé avec alert), validation formulaire optionnelle
+    const form = event.target;
+    const formData = new FormData(form);
+    const messageElement = document.getElementById('form-message');
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Boutons "Ajouter au panier"
-    const addButtons = document.querySelectorAll('.product button');
-    addButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            alert('Envoyer ! Merci.');
-            // Vous pouvez ajouter du code pour un vrai panier ici (localStorage par ex.)
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
         });
-    });
 
-    // Formulaire : Ajoutez une validation simple si besoin
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (e) => {
-        // Validation optionnelle avant envoi à Web3Forms
-        console.log('Formulaire soumis');
-    });
+        const result = await response.json();
+
+        if (result.success) {
+            messageElement.textContent = 'Message envoyé avec succès !';
+            messageElement.style.color = '#00ffff';
+            form.reset(); // Réinitialise le formulaire
+        } else {
+            messageElement.textContent = 'Erreur : ' + result.message;
+            messageElement.style.color = '#ff69b4';
+        }
+    } catch (error) {
+        messageElement.textContent = 'Une erreur s\'est produite. Veuillez réessayer.';
+        messageElement.style.color = '#ff69b4';
+    }
 });
