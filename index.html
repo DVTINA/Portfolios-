@@ -46,25 +46,32 @@
         </section>
     </div>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contacter moi ici, en écrivant quelques choses.</h2>
-            <form action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="9eae8f19-3986-457e-991f-43c241c17b22">
-                <input type="text" name="name" placeholder="Votre Nom" required>
-                <input type="email" name="email" placeholder="Votre Email" required>
-                <select name="product" required>
-                    <option value="">Types de lettres</option>
-                    <option value="Produit Exemple 1 - 49.99 €">Collaborations</option>
-                    <option value="Produit Exemple 2 - 79.99 €">Services</option>
-                    <option value="Produit Exemple 3 - 29.99 €">Autres</option>
-                </select>
-                <input type="number" name="quantity" placeholder="Numéro téléphone" min="10" required>
-                <textarea name="message" placeholder="Ecrire le message ici"></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
-    </section>
+    <div class="form-container">
+        <h2>Contactez-nous</h2>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="9eae8f19-3986-457e-991f-43c241c17b22">
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+        </form>
+        <p id="form-message"></p>
+    </div>
+
+    <script src="script.js"></script>
 
     <footer class="footer">
         <p>&copy; 2025 MR. AROTINA. Tous droits réservés.</p>
