@@ -39,24 +39,24 @@
     </div>
 
     <div class="form-container">
-            <h2>Contactez-moi</h2>
+            <h2>Écrivez directement ici</h2>
             <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="9eae8f19-3986-457e-991f-43c241c17b22">
                 <div class="form-group">
                     <label for="name">Nom</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="votre nom" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Téléphone</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" name="phone" placeholder="votre téléphone" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="votre e-mail" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" placeholder="Écrire votre message ici" required></textarea>
                 </div>
                 <button type="submit">Envoyer</button>
             </form>
