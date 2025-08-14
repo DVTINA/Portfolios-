@@ -45,6 +45,27 @@
         </section>
     </div>
 
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contacter moi ici, en écrivant quelques choses.</h2>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="9eae8f19-3986-457e-991f-43c241c17b22
+"> <!-- Remplacez par votre clé Web3Forms -->
+                <input type="text" name="name" placeholder="Votre Nom" required>
+                <input type="email" name="email" placeholder="Votre Email" required>
+                <select name="product" required>
+                    <option value="">Types de lettres</option>
+                    <option value="Produit Exemple 1 - 49.99 €">Collaborations</option>
+                    <option value="Produit Exemple 2 - 79.99 €">Services</option>
+                    <option value="Produit Exemple 3 - 29.99 €">Autres</option>
+                </select>
+                <input type="number" name="quantity" placeholder="Quantité" min="1" required>
+                <textarea name="message" placeholder="Adresse de Livraison ou Message"></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
     <footer class="footer">
         <p>&copy; 2025 MR. AROTINA. Tous droits réservés.</p>
     </footer>
