@@ -284,16 +284,6 @@ form button:hover {
 }
 
 /* Responsive Design */
-body {
-    background-color: #000; /* Noir pour le fond */
-    color: #fff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
 .form-container {
     background-color: #1a1a1a; /* Fond légèrement plus clair pour le formulaire */
