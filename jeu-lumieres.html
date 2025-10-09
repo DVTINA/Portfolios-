@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jeu de Lumières interactif par MR AROTINA. Allumez des lettres, chiffres ou motifs en différentes couleurs et envoyez un feedback.">
+    <meta name="keywords" content="jeu de lumières, MR AROTINA, développement web, interactif">
+    <meta name="author" content="MR AROTINA">
+    <title>Jeu de Lumières - MR AROTINA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap&subset=latin" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>MR. AROTINA</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="cv.html">CV 2025</a></li>
+                <li><a href="https://energiemystere.simdif.com/">Mon site</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="jeu-lumieres.html" class="active">Jeu de Lumières</a></li>
+                <li><a href="about.html">À propos</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Basculer entre mode sombre et clair">🌙</button>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Jeu de Lumières Interactif</h2>
+            <p class="intro">Cliquez sur une lettre ou un chiffre, puis choisissez une couleur pour afficher le motif. Essayez le mode aléatoire pour une expérience dynamique !</p>
+            <div class="light-game">
+                <div class="light-controls">
+                    <!-- Boutons de couleur -->
+                    <button class="light-btn color-btn" data-color="#ff0000">Rouge</button>
+                    <button class="light-btn color-btn" data-color="#00ff00">Vert</button>
+                    <button class="light-btn color-btn" data-color="#00f7ff">Aqua</button>
+                    <button class="light-btn color-btn" data-color="#ff69b4">Rose</button>
+                    <button class="light-btn color-btn" data-color="#0000ff">Bleu</button>
+                    <button class="light-btn color-btn" data-color="#000000">Noir</button>
+                    <button class="light-btn" data-color="off">Éteindre</button>
+                    <button class="light-btn" id="random-mode">Mode Aléatoire</button>
+                    <!-- Boutons de l'alphabet -->
+                    <div class="alphabet-controls">
+                        <h3>Lettres</h3>
+                        <div class="letter-btns">
+                            <button class="light-btn letter-btn" data-char="A">A</button>
+                            <button class="light-btn letter-btn" data-char="B">B</button>
+                            <button class="light-btn letter-btn" data-char="C">C</button>
+                            <button class="light-btn letter-btn" data-char="D">D</button>
+                            <button class="light-btn letter-btn" data-char="E">E</button>
+                            <button class="light-btn letter-btn" data-char="F">F</button>
+                            <button class="light-btn letter-btn" data-char="G">G</button>
+                            <button class="light-btn letter-btn" data-char="H">H</button>
+                            <button class="light-btn letter-btn" data-char="I">I</button>
+                            <button class="light-btn letter-btn" data-char="J">J</button>
+                            <button class="light-btn letter-btn" data-char="K">K</button>
+                            <button class="light-btn letter-btn" data-char="L">L</button>
+                            <button class="light-btn letter-btn" data-char="M">M</button>
+                            <button class="light-btn letter-btn" data-char="N">N</button>
+                            <button class="light-btn letter-btn" data-char="O">O</button>
+                            <button class="light-btn letter-btn" data-char="P">P</button>
+                            <button class="light-btn letter-btn" data-char="Q">Q</button>
+                            <button class="light-btn letter-btn" data-char="R">R</button>
+                            <button class="light-btn letter-btn" data-char="S">S</button>
+                            <button class="light-btn letter-btn" data-char="T">T</button>
+                            <button class="light-btn letter-btn" data-char="U">U</button>
+                            <button class="light-btn letter-btn" data-char="V">V</button>
+                            <button class="light-btn letter-btn" data-char="W">W</button>
+                            <button class="light-btn letter-btn" data-char="X">X</button>
+                            <button class="light-btn letter-btn" data-char="Y">Y</button>
+                            <button class="light-btn letter-btn" data-char="Z">Z</button>
+                        </div>
+                        <!-- Boutons des chiffres -->
+                        <h3>Chiffres</h3>
+                        <div class="number-btns">
+                            <button class="light-btn number-btn" data-char="0">0</button>
+                            <button class="light-btn number-btn" data-char="1">1</button>
+                            <button class="light-btn number-btn" data-char="2">2</button>
+                            <button class="light-btn number-btn" data-char="3">3</button>
+                            <button class="light-btn number-btn" data-char="4">4</button>
+                            <button class="light-btn number-btn" data-char="5">5</button>
+                            <button class="light-btn number-btn" data-char="6">6</button>
+                            <button class="light-btn number-btn" data-char="7">7</button>
+                            <button class="light-btn number-btn" data-char="8">8</button>
+                            <button class="light-btn number-btn" data-char="9">9</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="light-grid">
+                    <!-- Les lumières seront générées dynamiquement par JavaScript -->
+                </div>
+            </div>
+            <div class="form-container">
+                <h2 id="form-title">Envoyer un Feedback</h2>
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" aria-labelledby="form-title">
+                    <input type="hidden" name="access_key" value="9eae8f19-3986-457e-991f-43c241c17b22">
+                    <div class="form-group">
+                        <label for="name" aria-label="Votre nom complet">Nom</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" aria-label="Votre numéro de téléphone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" aria-label="Votre adresse email">Email</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" aria-label="Votre message">Message</label>
+                        <textarea id="message" name="message" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit">Envoyer</button>
+                </form>
+                <p id="form-message" role="alert"></p>
+                <div class="comment-section">
+                    <h2>Commentaires</h2>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 MR. AROTINA. Tous droits réservés.</p>
+    </footer>
+
+    <script defer src="script.js"></script>
+</body>
+</html>

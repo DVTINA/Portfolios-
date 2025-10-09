@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horloges Modernes Arotina</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0ff 100%);
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background: #444;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+        }
+
+        #loginSection, #clocksSection, #userSection, #gallerySection {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #logoutBtn {
+            background: crimson;
+            float: right;
+            padding: 10px 15px;
+        }
+
+        #logoutBtn:hover {
+            background: #b30000;
+        }
+
+        #deleteAll {
+            background: #dc3545;
+        }
+
+        #deleteAll:hover {
+            background: #c82333;
+        }
+
+        /* Styles pour horloges (conservés) */
+        .clocks-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .clock-wrapper {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .clock-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        .clock-wrapper h2 {
+            margin: 0 0 15px 0;
+            color: #007BFF;
+        }
+
+        .clock {
+            position: relative;
+            width: min(80vw, 300px);
+            height: min(80vw, 300px);
+            border-radius: 50%;
+            background-color: white;
+            border: 10px solid #007BFF; /* Bleu dominant */
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+            margin: 0 auto;
+        }
+
+        .number {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .number1 { transform: rotate(30deg); }
+        .number2 { transform: rotate(60deg); }
+        .number3 { transform: rotate(90deg); }
+        .number4 { transform: rotate(120deg); }
+        .number5 { transform: rotate(150deg); }
+        .number6 { transform: rotate(180deg); }
+        .number7 { transform: rotate(210deg); }
+        .number8 { transform: rotate(240deg); }
+        .number9 { transform: rotate(270deg); }
+        .number10 { transform: rotate(300deg); }
+        .number11 { transform: rotate(330deg); }
+        .number12 { transform: rotate(0deg); }
+
+        .number span {
+            display: inline-block;
+            transform: rotate(calc(-1 * var(--rotation)));
+        }
+
+        /* Aiguilles */
+        .hand {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0% 100%;
+            border-radius: 2px;
+            transition: transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+
+        .hour {
+            width: 4px;
+            height: 60px;
+            background-color: black;
+            margin: -60px 0 0 -2px;
+        }
+
+        .minute {
+            width: 3px;
+            height: 80px;
+            background-color: black;
+            margin: -80px 0 0 -1.5px;
+        }
+
+        .second {
+            width: 1px;
+            height: 90px;
+            background-color: red;
+            margin: -90px 0 0 -0.5px;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        /* Horloge Digitale */
+        .digital-clock {
+            width: min(80vw, 300px);
+            height: 120px;
+            background: linear-gradient(45deg, #00FFFF, #FF69B4);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+            margin: 0 auto;
+        }
+
+        .digital-clock span {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+        }
+
+        /* Styles pour publication et galerie (fusionnés) */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Augmenté pour plus d'écart entre les cards Publier */
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card h3, .card h4 {
+            margin: 0 0 10px 0;
+            color: #007BFF;
+        }
+
+        .card p {
+            margin: 0 0 10px 0;
+            color: #666;
+        }
+
+        .like-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .like-btn {
+            background-color: #FF69B4;
+            padding: 8px 15px;
+            font-size: 0.9em;
+        }
+
+        .like-btn.liked {
+            background-color: #FF1493;
+        }
+
+        .like-count {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        /* Galerie améliorée pour responsive */
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card.gallery-card {
+            width: 250px;
+            flex-direction: column;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .card.gallery-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        .card.gallery-card .like-section {
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #adminPanel {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #007BFF;
+        }
+
+        /* Responsive amélioré */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .clocks-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .card img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .cards-container {
+                gap: 25px; /* Légèrement réduit sur mobile pour l'espace */
+            }
+
+            .number {
+                font-size: 16px;
+            }
+
+            .digital-clock {
+                font-size: 2.5em;
+                height: 100px;
+            }
+
+            .card.gallery-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            #gallery {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header, nav, .footer {
+                width: 100%;
+            }
+
+            .number {
+                font-size: 14px;
+            }
+
+            .digital-clock {
+                font-size: 2em;
+                height: 80px;
+            }
+
+            .cards-container {
+                gap: 20px;
+            }
+
+            #gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card.gallery-card {
+                width: 100%;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            color: #777;
+            font-size: 0.9em;
+            width: 90%;
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🕰️ Horloges Modernes </h1>
+    </header>
+
+    <nav>
+        <a href="#loginSection">Connexion</a>
+        <a href="#clocksSection">Horloges</a>
+        <a href="#userSection">Publier</a>
+        <a href="#gallerySection">Galerie</a>
+    </nav>
+
+    <div class="container">
+        <!-- Connexion -->
+        <section id="loginSection">
+            <h2>Connexion utilisateur</h2>
+            <div id="loginForm">
+                <input type="text" id="username" placeholder="Nom d'utilisateur">
+                <input type="password" id="password" placeholder="Mot de passe">
+                <button id="loginBtn">Se connecter</button>
+            </div>
+            <div id="userInfo" style="display:none;">
+                <p>Bienvenue, <strong id="currentUser"></strong> !</p>
+                <button id="logoutBtn">Se déconnecter</button>
+            </div>
+        </section>
+
+        <!-- Horloges (conservé) -->
+        <section id="clocksSection">
+            <h2>Nos Horloges Démo</h2>
+            <div class="clocks-container">
+                <div class="clock-wrapper">
+                    <h3>Horloge Murale Analogique Bleue</h3>
+                    <div class="clock" id="analogClock">
+                        <div class="number number1"><span style="--rotation: 30deg;">1</span></div>
+                        <div class="number number2"><span style="--rotation: 60deg;">2</span></div>
+                        <div class="number number3"><span style="--rotation: 90deg;">3</span></div>
+                        <div class="number number4"><span style="--rotation: 120deg;">4</span></div>
+                        <div class="number number5"><span style="--rotation: 150deg;">5</span></div>
+                        <div class="number number6"><span style="--rotation: 180deg;">6</span></div>
+                        <div class="number number7"><span style="--rotation: 210deg;">7</span></div>
+                        <div class="number number8"><span style="--rotation: 240deg;">8</span></div>
+                        <div class="number number9"><span style="--rotation: 270deg;">9</span></div>
+                        <div class="number number10"><span style="--rotation: 300deg;">10</span></div>
+                        <div class="number number11"><span style="--rotation: 330deg;">11</span></div>
+                        <div class="number number12"><span style="--rotation: 0deg;">12</span></div>
+                        <div class="hand hour" id="hour"></div>
+                        <div class="hand minute" id="minute"></div>
+                        <div class="hand second" id="second"></div>
+                        <div class="center"></div>
+                    </div>
+                </div>
+
+                <div class="clock-wrapper">
+                    <h3>Horloge Électronique Aqua & Rose</h3>
+                    <div class="digital-clock" id="digitalClock">
+                        <span id="digitalTime">00:00:00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publication (fusionnée avec upload fichier et likes) -->
+        <section id="userSection" style="display:none;">
+            <h2>Publier une montre</h2>
+            <div class="form-container">
+                <form id="watchForm">
+                    <div class="form-group">
+                        <label for="watchBrand">Marque de Montre:</label>
+                        <input type="text" id="watchBrand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="watchDescription">Description/Modèle:</label>
+                        <textarea id="watchDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="watchImage">Photo de Montre (fichier ou URL):</label>
+                        <input type="file" id="watchImage" accept="image/*">
+                        <input type="url" id="imageUrl" placeholder="Ou entrez une URL: https://example.com/montre.jpg">
+                    </div>
+                    <button type="submit">Publier la Carte</button>
+                </form>
+            </div>
+            <div class="cards-container" id="cardsContainer">
+                <!-- Les cartes seront ajoutées ici dynamiquement -->
+            </div>
+            <div id="adminPanel" style="display:none;">
+                <h3>Panel Administrateur</h3>
+                <button id="deleteAll">Supprimer toutes les publications</button>
+            </div>
+        </section>
+
+        <!-- Galerie -->
+        <section id="gallerySection">
+            <h2>Galerie des montres</h2>
+            <div id="gallery"></div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Expédition gratuite • Paiement sécurisé • Assistance disponible</p>
+    </div>
+
+    <script>
+        // --- Données utilisateurs par défaut ---
+        const users = [
+            { username: "admin", password: "1234" },
+            { username: "user", password: "0000" }
+        ];
+
+        // --- Exemples de montres par défaut ---
+        const defaultWatches = [
+            { brand: "Rolex Submariner", description: "Classique et élégante, la référence du luxe.", image: "grok_image_x1jzpeb.jpg", likes: 0, liked: false },
+            { brand: "Casio G-Shock", description: "Robuste et résistante, parfaite pour le sport.", image: "grok_image_x74zml8.jpg", likes: 0, liked: false },
+            { brand: "Apple Watch", description: "La montre connectée moderne.", image: "grok_image_x2672c4.jpg", likes: 0, liked: false }
+        ];
+
+        // Analog Clock
+        function setAnalogClock() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+
+            const secondDeg = seconds * 6;
+            const minuteDeg = minutes * 6 + seconds * 0.1;
+            const hourDeg = (hours % 12) * 30 + minutes * 0.5 + seconds * (0.5 / 60);
+
+            document.getElementById('second').style.transform = `rotate(${secondDeg}deg)`;
+            document.getElementById('minute').style.transform = `rotate(${minuteDeg}deg)`;
+            document.getElementById('hour').style.transform = `rotate(${hourDeg}deg)`;
+        }
+
+        // Digital Clock
+        function setDigitalClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('fr-FR', { 
+                hour12: false, 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            });
+            document.getElementById('digitalTime').textContent = timeString;
+        }
+
+        // Initialize and update clocks
+        setAnalogClock();
+        setDigitalClock();
+        setInterval(() => {
+            setAnalogClock();
+            setDigitalClock();
+        }, 1000);
+
+        // --- Récupérer les montres stockées localement (unifié sous 'watches') ---
+        function getStoredWatches() {
+            const stored = localStorage.getItem('watches');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        // --- Sauvegarder les montres ---
+        function saveWatches(watches) {
+            localStorage.setItem('watches', JSON.stringify(watches));
+        }
+
+        // --- Afficher la galerie ---
+        function renderGallery() {
+            const gallery = document.getElementById('gallery');
+            const stored = getStoredWatches();
+            const allWatches = [...defaultWatches, ...stored];
+            gallery.innerHTML = '';
+            allWatches.forEach(w => {
+                const card = document.createElement('div');
+                card.className = 'card gallery-card';
+                card.innerHTML = `
+                    <img src="${w.image}" alt="${w.brand}" onerror="this.src='https://via.placeholder.com/100?text=Montre'">
+                    <h4>${w.brand}</h4>
+                    <p>${w.description}</p>
+                    <div class="like-section">
+                        <button class="like-btn ${w.liked ? 'liked' : ''}" onclick="toggleLikeGallery('${w.image}')">❤️ Like</button>
+                        <span class="like-count">${w.likes} likes</span>
+                    </div>
+                `;
+                gallery.appendChild(card);
+            });
+        }
+
+        // Fonction pour toggler le likedans la galerie (simulé)
+        function toggleLikeGallery(imageKey) {
+            const stored = getStoredWatches();
+            const allWatches = [...defaultWatches, ...stored];
+            const watch = allWatches.find(w => w.image === imageKey);
+            if (watch) {
+                watch.likes += 1;
+                watch.liked = true;
+                // Mettre à jour si c'est une stored watch
+                const storedIndex = stored.findIndex(w => w.image === imageKey);
+                if (storedIndex !== -1) {
+                    stored[storedIndex] = watch;
+                    saveWatches(stored);
+                }
+                renderGallery();
+            }
+        }
+
+        // --- Connexion utilisateur ---
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            const u = document.getElementById('username').value.trim();
+            const p = document.getElementById('password').value.trim();
+            const found = users.find(user => user.username === u && user.password === p);
+            if (found) {
+                localStorage.setItem('currentUser', u);
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('userInfo').style.display = 'block';
+                document.getElementById('currentUser').textContent = u;
+                document.getElementById('userSection').style.display = 'block';
+                if (u === 'admin') {
+                    document.getElementById('adminPanel').style.display = 'block';
+                }
+                alert("Connexion réussie !");
+            } else {
+                alert("Nom d'utilisateur ou mot de passe incorrect !");
+            }
+        });
+
+        // --- Déconnexion ---
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('currentUser');
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('userInfo').style.display = 'none';
+            document.getElementById('userSection').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'none';
+        });
+
+        // --- Publier une montre (fusionné avec FileReader ou URL) ---
+        document.getElementById('watchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const brand = document.getElementById('watchBrand').value.trim();
+            const description = document.getElementById('watchDescription').value.trim();
+            const imageInput = document.getElementById('watchImage').files[0];
+            const imageUrl = document.getElementById('imageUrl').value.trim();
+
+            if (!brand || !description || (!imageInput && !imageUrl)) {
+                alert("Veuillez remplir tous les champs et fournir une image (fichier ou URL) !");
+                return;
+            }
+
+            let imageData = imageUrl;
+
+            if (imageInput) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    imageData = reader.result;
+                    finalizePublish(brand, description, imageData);
+                };
+                reader.readAsDataURL(imageInput);
+            } else {
+                finalizePublish(brand, description, imageData);
+            }
+        });
+
+        function finalizePublish(brand, description, image) {
+            const newWatch = { 
+                brand, 
+                description, 
+                image, 
+                likes: 0, 
+                liked: false,
+                createdAt: new Date().toISOString()
+            };
+            const watches = getStoredWatches();
+            watches.push(newWatch);
+            saveWatches(watches);
+            renderCards();
+            renderGallery();
+            alert("Montre publiée avec succès !");
+            document.getElementById('watchForm').reset();
+        }
+
+        // --- Rendre les cartes dans la section user (conservé avec likes) ---
+        function renderCards() {
+            const container = document.getElementById('cardsContainer');
+            const watches = getStoredWatches();
+            container.innerHTML = watches.map((watch, index) => `
+                <div class="card">
+                    <img src="${watch.image}" alt="${watch.brand} ${watch.description}" onerror="this.src='https://via.placeholder.com/100?text=Montre'">
+                    <div class="card-content">
+                        <h3>${watch.brand} - ${watch.description}</h3>
+                        <p>Partagée par un passionné de montres.</p>
+                        <div class="like-section">
+                            <button class="like-btn ${watch.liked ? 'liked' : ''}" onclick="toggleLike(${index})">❤️ Like</button>
+                            <span class="like-count">${watch.likes} likes</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Fonction pour toggler le like dans les cartes user
+        function toggleLike(index) {
+            const watches = getStoredWatches();
+            watches[index].likes += 1;
+            watches[index].liked = true;
+            saveWatches(watches);
+            renderCards();
+        }
+
+        // --- Fonction suppression toutes les publications (admin seulement) ---
+        document.getElementById('deleteAll').addEventListener('click', () => {
+            if (confirm('Êtes-vous sûr de vouloir supprimer TOUTES les publications ? Cette action est irréversible.')) {
+                saveWatches([]); // Vider le stockage
+                renderCards();
+                renderGallery();
+                alert('Toutes les publications ont été supprimées.');
+            }
+        });
+
+        // --- Vérifier la session ---
+        window.addEventListener('load', () => {
+            renderGallery();
+            renderCards();
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('userInfo').style.display = 'block';
+                document.getElementById('currentUser').textContent = user;
+                document.getElementById('userSection').style.display = 'block';
+                if (user === 'admin') {
+                    document.getElementById('adminPanel').style.display = 'block';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

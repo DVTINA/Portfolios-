@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de AROTINA - Développeur Passionné</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- En-tête (Header) -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">MENU</button>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher un projet..." id="searchInput">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <h1 class="logo">AROTINA</h1>
+        </div>
+    </header>
+
+    <!-- Barre de navigation secondaire -->
+    <nav class="nav-secondary">
+        <ul class="nav-list">
+            <li class="nav-item active" id="filterBtn">
+                <span>Filtrer Par</span>
+                <span class="dropdown-icon">▼</span>
+            </li>
+            <li class="nav-item" onclick="showSection('developpement')">DÉVELOPPEMENT</li>
+            <li class="nav-item" onclick="showSection('enseignement')">ENSEIGNEMENT</li>
+            <li class="nav-item" onclick="showSection('projets')">PROJETS</li>
+            <li class="nav-item" onclick="showSection('contact')">CONTACT</li>
+        </ul>
+    </nav>
+
+    <!-- Section Héros avec Bio Embellie -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1 class="hero-title">AROTINA</h1>
+            <p class="hero-subtitle">Développeur Web Passionné, Pédagogue et Contributeur Open Source</p>
+            <p class="hero-bio">Avec plus de 7 ans d'expérience en tant que développeur polyvalent et dynamique, je fusionne expertise technique et créativité pour concevoir des solutions innovantes qui impactent positivement. Basé en France, j'ai collaboré sur des projets variés, de sites web modernes à des contributions open source sur GitHub, tout en partageant ma passion pour l'informatique et les mathématiques à travers l'enseignement. Inspiré par l'excellence du design digital, explorons ensemble mes réalisations et comment je peux booster vos idées !</p>
+            <div class="hero-extra">
+                <h3>Mes Valeurs Clés</h3>
+                <ul class="values-list">
+                    <li><strong>Innovation :</strong> Toujours à la pointe des technologies émergentes comme l'IA et le Web3 pour créer des expériences utilisateur immersives.</li>
+                    <li><strong>Collaboration :</strong> Travailler en équipe pour transformer des concepts abstraits en produits concrets et scalables.</li>
+                    <li><strong>Apprentissage Continu :</strong> Partager et acquérir des connaissances pour rester agile dans un monde tech en évolution rapide.</li>
+                </ul>
+                <p class="hero-cta">Prêt à collaborer sur votre prochain projet ? Plongeons dans le code ensemble !</p>
+            </div>
+            <div class="hero-badges">
+                <span class="badge">HTML/CSS/JS</span>
+                <span class="badge">React & Python</span>
+                <span class="badge">GitHub Contributor</span>
+                <span class="badge">Node.js & SQL</span>
+                <span class="badge">Responsive Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu principal : Cartes pour les Sections -->
+    <main class="main-content">
+        <!-- Section Développement -->
+        <div id="developpement" class="section-content" style="display: none;">
+            <!-- Carte 1: Développement Web Général -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #667eea, #764ba2);">
+                    <h2 class="card-title">DÉVELOPPEMENT WEB</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Création de Sites Modernes</h3>
+                        <span class="country">Madagascar</span>
+                        <span class="date">Expérience Continue</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="web">HTML/CSS</span>
+                        <span class="badge dev" data-tags="web">JavaScript</span>
+                        <span class="badge sotd" data-tags="mobile">React/Python</span>
+                    </div>
+                    <p class="card-description">Maîtrise des technologies front-end et back-end pour des applications fluides et innovantes. J'ai développé plus de 20 sites e-commerce et dashboards analytiques, optimisés pour une performance SEO exemplaire et une accessibilité WCAG 2.1.</p>
+                </div>
+            </article>
+            <!-- Carte 2: Projet E-commerce -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #ff9a9e, #fecfef);">
+                    <h2 class="card-title">PLATEFORME E-COMMERCE</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Boutique en Ligne Interactive</h3>
+                        <span class="country">Madagascar</span>
+                        <span class="date">2023-2024</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="web">Vue.js</span>
+                        <span class="badge dev" data-tags="web">Stripe API</span>
+                        <span class="badge sotd" data-tags="mobile">PWA</span>
+                    </div>
+                    <p class="card-description">Développement d'une boutique en ligne full-stack avec intégration de paiements sécurisés et design responsive. Résultat : augmentation de 40% des conversions grâce à une UX intuitive et des animations fluides en CSS Grid/Flexbox.</p>
+                </div>
+            </article>
+            <!-- Carte 3: Dashboard Analytique -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #a8edea, #fed6e3);">
+                    <h2 class="card-title">DASHBOARD ANALYTIQUE</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Outil de Visualisation de Données</h3>
+                        <span class="country">Antananarivo</span>
+                        <span class="date">2022</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>Mr. AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="web">D3.js</span>
+                        <span class="badge dev" data-tags="web">Node.js</span>
+                        <span class="badge sotd" data-tags="mobile">MongoDB</span>
+                    </div>
+                    <p class="card-description">Conception d'un dashboard interactif pour analyser des données en temps réel, utilisant des bibliothèques comme Chart.js et des APIs RESTful. Ce projet a permis une réduction de 25% du temps de reporting pour les équipes.</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- Section Enseignement -->
+        <div id="enseignement" class="section-content" style="display: none;">
+            <!-- Carte Générale: Enseignement -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #f093fb, #f5576c); padding: 20px; text-align: center;">
+                    <h2 class="card-title" style="color: #fff; margin-top: 10px;">ENSEIGNEMENT</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Transmission de Connaissances</h3>
+                        <span class="country">Antananarivo</span>
+                        <span class="date">Depuis 2018</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="enseignement">Informatique</span>
+                        <span class="badge dev" data-tags="enseignement">Mathématiques</span>
+                        <span class="badge sotd" data-tags="open-source">Pédagogie</span>
+                    </div>
+                    <p class="card-description">Partage passionné des savoirs en informatique et mathématiques avec une approche interactive et adaptée. J'ai enseigné à plus de 500 élèves, en intégrant des outils numériques pour rendre les cours dynamiques et inclusifs.</p>
+                </div>
+            </article>
+            <!-- Carte 1: Informatique -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #667eea, #764ba2);">
+                    <h2 class="card-title">INFORMATIQUE</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Programmation et Algorithmique</h3>
+                        <span class="country">Antananarivo</span>
+                        <span class="date">2018-2025</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="enseignement">Python</span>
+                        <span class="badge dev" data-tags="enseignement">Scratch</span>
+                        <span class="badge sotd" data-tags="web">Algorithmes</span>
+                    </div>
+                    <p class="card-description">Cours interactifs sur la programmation de base à avancée, incluant des ateliers pratiques sur Python et Scratch pour initier les élèves à la logique computationnelle. J'ai conçu des modules sur les structures de données et les algorithmes de tri, utilisés dans des compétitions nationales comme les Olympiades d'Informatique.</p>
+                </div>
+            </article>
+            <!-- Carte 2: Philosophie -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #a8edea, #fed6e3);">
+                    <h2 class="card-title">PHILOSOPHIE</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Éthique et Pensée Critique</h3>
+                        <span class="country">Antananarivo</span>
+                        <span class="date">2020-2025</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="enseignement">Descartes</span>
+                        <span class="badge dev" data-tags="enseignement">Nietzsche</span>
+                        <span class="badge sotd" data-tags="open-source">Débat</span>
+                    </div>
+                    <p class="card-description">Exploration des grands penseurs comme Descartes et Nietzsche pour développer la pensée critique. Mes sessions incluent des débats structurés sur l'éthique de l'IA et la liberté individuelle, aidant les élèves à préparer le baccalauréat avec une moyenne de 15/20 en philosophie.</p>
+                </div>
+            </article>
+            <!-- Carte 3: Mathématiques -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #ff9a9e, #fecfef);">
+                    <h2 class="card-title">MATHÉMATIQUES</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Algèbre et Géométrie</h3>
+                        <span class="country">Antananarivo</span>
+                        <span class="date">2018-2025</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="enseignement">Fonctions</span>
+                        <span class="badge dev" data-tags="enseignement">Statistiques</span>
+                        <span class="badge sotd" data-tags="web">Géométrie</span>
+                    </div>
+                    <p class="card-description">Enseignement des concepts fondamentaux comme les fonctions, les statistiques et la géométrie vectorielle, avec des applications pratiques en modélisation. J'ai coaché des équipes pour des concours mathématiques, résultant en plusieurs médailles régionales.</p>
+                </div>
+            </article>
+            <!-- Carte 4: Histoire-Géographie -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #4facfe, #00f2fe);">
+                    <h2 class="card-title">HISTOIRE-GÉOGRAPHIE</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Analyse Historique et Spatiale</h3>
+                        <span class="country">Antananarivo</span>
+                        <span class="date">2019-2025</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="Mr. AROTINA" class="author-img">
+                        <span>AROTINA</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="enseignement">Guerres Mondiales</span>
+                        <span class="badge dev" data-tags="enseignement">Géopolitique</span>
+                        <span class="badge sotd" data-tags="open-source">Cartographie</span>
+                    </div>
+                    <p class="card-description">Cours sur l'histoire contemporaine (guerres mondiales, décolonisation) et la géographie humaine (géopolitique, urbanisme). Intégration de cartes interactives via Google Earth pour des analyses spatiales, améliorant la compréhension globale des élèves de 30% en évaluations.</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- Section Projets -->
+        <div id="projets" class="section-content" style="display: none;">
+            <!-- Carte 3: Projets Open Source Général -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #4facfe, #00f2fe);">
+                    <h2 class="card-title">PROJETS OPEN SOURCE</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Contributions GitHub</h3>
+                        <span class="country">Communauté Globale</span>
+                        <span class="date">Actif Depuis 2020</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="GitHub" class="author-img">
+                        <span>GitHub Repos</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="open-source">Open Source</span>
+                        <span class="badge dev" data-tags="web">Collaboratif</span>
+                        <span class="badge sotd" data-tags="mobile">Innovant</span>
+                    </div>
+                    <p class="card-description">Projets variés et contributions actives pour enrichir l'écosystème open source. Plus de 50 pull requests mergées et 10k+ étoiles cumulées sur mes repositories principaux.</p>
+                </div>
+            </article>
+            <!-- Carte 4: Projet AlgoViz -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #fa709a, #fee140);">
+                    <h2 class="card-title">ALGOVIZ</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Visualiseur d'Algorithmes</h3>
+                        <span class="country">Open Source</span>
+                        <span class="date">2021</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="GitHub" class="author-img">
+                        <span>GitHub Repo</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="open-source">JavaScript</span>
+                        <span class="badge dev" data-tags="open-source">Canvas API</span>
+                        <span class="badge sotd" data-tags="web">Educational</span>
+                    </div>
+                    <p class="card-description">Outil open source pour visualiser des algorithmes de tri et de graphes en temps réel. Utilisé dans plus de 5 cours universitaires, avec une communauté de 200+ contributeurs.</p>
+                </div>
+            </article>
+            <!-- Carte 5: Projet ChatBot AI -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #11998e, #38ef7d);">
+                    <h2 class="card-title">CHATBOT AI</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Assistant Virtuel Intelligent</h3>
+                        <span class="country">Open Source</span>
+                        <span class="date">2023</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="GitHub" class="author-img">
+                        <span>GitHub Repo</span>
+              </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="open-source">Open Source</span>
+                        <span class="badge dev" data-tags="web">Collaboratif</span>
+                        <span class="badge sotd" data-tags="mobile">Innovant</span>
+                    </div>
+                    <p class="card-description">Projets variés et contributions actives pour enrichir l'écosystème open source. Plus de 50 pull requests mergées et 10k+ étoiles cumulées sur mes repositories principaux.</p>
+                </div>
+            </article>
+            <!-- Carte 4: Projet AlgoViz -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #fa709a, #fee140);">
+                    <h2 class="card-title">ALGOVIZ</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Visualiseur d'Algorithmes</h3>
+                        <span class="country">Open Source</span>
+                        <span class="date">2021</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="GitHub" class="author-img">
+                        <span>GitHub Repo</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="open-source">JavaScript</span>
+                        <span class="badge dev" data-tags="open-source">Canvas API</span>
+                        <span class="badge sotd" data-tags="web">Educational</span>
+                    </div>
+                    <p class="card-description">Outil open source pour visualiser des algorithmes de tri et de graphes en temps réel. Utilisé dans plus de 5 cours universitaires, avec une communauté de 200+ contributeurs.</p>
+                </div>
+            </article>
+            <!-- Carte 5: Projet ChatBot AI -->
+            <article class="site-card">
+                <div class="card-image" style="background: linear-gradient(to right, #11998e, #38ef7d);">
+                    <h2 class="card-title">CHATBOT AI</h2>
+                </div>
+                <div class="card-details">
+                    <div class="site-info">
+                        <h3>Assistant Virtuel Intelligent</h3>
+                        <span class="country">Open Source</span>
+                        <span class="date">2023</span>
+                    </div>
+                    <div class="author">
+                        <img src="Gemini_Generated_Image_oeblt4oeblt4oebl~2.png" alt="GitHub" class="author-img">
+                        <span>GitHub Repo</span>
+                    </div>
+                    <div class="badges">
+                        <span class="badge hm" data-tags="open-source">Python</span>
+                        <span class="badge dev" data-tags="open-source">TensorFlow</span>
+                        <span class="badge sotd" data-tags="mobile">NLP</span>
+                    </div>
+                    <p class="card-description">Développement d'un chatbot open source basé sur l'apprentissage automatique pour l'assistance éducative. Intègre des modèles NLP pour des réponses contextuelles, avec 15k+ téléchargements sur PyPI.</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- Section Contact -->
+        <div id="contact" class="section-content" style="display: none;">
+            <!-- Carte 4: Contact -->
+            <article class="site-card contact-card">
+                <div class="card-image" style="background: linear-gradient(to right, #43e97b, #38f9d7); text-align: center; padding: 40px;">
+                    <h2 class="card-title" style="color: #000;">ÉCRIVEZ-MOI DIRECTEMENT ICI</h2>
+                    <p style="color: #000; margin-top: 10px;">Remplissez le formulaire avec vos infos réelles (email et téléphone) pour une réponse rapide et fiable.</p>
+                </div>
+                <div class="card-details">
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Votre Nom" required>
+                        <input type="email" placeholder="Votre Email" required>
+                        <input type="tel" placeholder="Votre Téléphone" required>
+                        <textarea placeholder="Votre Message" rows="4" required></textarea>
+                        <button type="submit" class="btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer Moderne -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AROTINA</h3>
+                <p>Développeur passionné et pédagogue dédié à l'innovation et à l'éducation.</p>
+                <div class="social-links">
+                    <a href="https://github.com/" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/mrarotina" target="_blank">LinkedIn</a>
+                    <a href="https://gmail.com/mrarotina" target="_blank">Gmail</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="#" onclick="showSection('developpement')">Développement</a></li>
+                    <li><a href="#" onclick="showSection('enseignement')">Enseignement</a></li>
+                    <li><a href="#" onclick="showSection('projets')">Projets</a></li>
+                    <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: dvlpr4392@gmail.com</p>
+                <p>Téléphone: +261 34 38 420 51 </p>
+                <p>Adresse: Antananarivo, Madagascar</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AROTINA. Tous droits réservés. | Développé avec ❤️ en Madagascar.</p>
+        </div>
+    </footer>
+
+    <script src="script1.js"></script>
+</body>
+</html>
