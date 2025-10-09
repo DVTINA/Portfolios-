@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de MR AROTINA, développeur passionné et créateur de jeux interactifs comme le Jeu de Lumières.">
+    <meta name="keywords" content="portfolio, développement web, jeu de lumières, MR AROTINA, programmation">
+    <meta name="author" content="MR AROTINA">
+    <title>Portfolio - MR AROTINA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap&subset=latin" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>MR. AROTINA</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="cv.html">CV 2025</a></li>
+                <li><a href="https://energiemystere.simdif.com/">Mon site</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="pagelibre.html">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Bienvenue sur mon Portfolio</h2>
+            <a href="about.html" class="card-link">AROTINA</a>
+            <p class="intro">
+                Développeur passionné, polyvalent et dynamique, je combine compétences techniques et créativité pour réaliser des projets innovants. Explorez mes réalisations, mon parcours et mes passions à travers ce portfolio.
+            </p>
+            <div class="portfolio-highlights">
+                <div class="highlight-card">
+                    <h3>Développement Web</h3>
+                    <p>Création de sites modernes avec HTML, CSS, JavaScript et frameworks comme React et aussi Python.</p>
+                    <a href="montre.html" class="card-link">Bublicite</a>
+                </div>
+                <div class="highlight-card">
+                    <h3>Enseignement</h3>
+                    <p>Transmission de connaissances en informatique et mathématiques avec pédagogie.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Projets Open Source</h3>
+                    <p>Contributeur actif sur GitHub avec des projetsr variés.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Jeu de Lumières</h3>
+                    <p>Un jeu interactif pour allumer des lumières en rouge, vert, aqua, rose, bleu ou noir.</p>
+                    <a href="jeu-lumieres.html" class="card-link">Jouer maintenant</a>
+                </div>
+            </div>
+            <div class="form-container">
+                <h2 id="form-title">Contactez-nous</h2>
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" aria-labelledby="form-title">
+                    <input type="hidden" name="access_key" value="9eae8f19-3986-457e-991f-43c241c17b22">
+                    <div class="form-group">
+                        <label for="name" aria-label="Votre nom complet">Nom</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" aria-label="Votre numéro de téléphone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" aria-label="Votre adresse email">Email</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" aria-label="Votre message">Message</label>
+                        <textarea id="message" name="message" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit">Envoyer</button>
+                </form>
+                <p id="form-message" role="alert"></p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 MR. AROTINA. Tous droits réservés.</p>
+    </footer>
+
+    <script defer src="script.js"></script>
+</body>
+</html>
