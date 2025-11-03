@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carte du Monde Interactive</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Carte du Monde Interactive</h1>
+    <p>Cliquez sur un pays ou recherchez-le.</p>
+
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Rechercher un pays..." autocomplete="off" />
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="info-panel" class="info-panel">
+      <div class="flag-container">
+        <span id="flag" class="flag">World</span>
+        <h2 id="country-name">Cliquez sur un pays</h2>
+      </div>
+      <p><strong>Capitale :</strong> <span id="capital">-</span></p>
+      <p><strong>Superficie :</strong> <span id="area">-</span> km²</p>
+      <p><strong>Population :</strong> <span id="population">-</span></p>
+      <p><strong>Continent :</strong> <span id="continent">-</span></p>
+      <p><strong>Langue(s) :</strong> <span id="language">-</span></p>
+      <p><strong>Monnaie :</strong> <span id="currency">-</span></p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>
